@@ -1,0 +1,41 @@
+
+<form action='/logout' method='GET'>
+	<button>Log out</button>
+</form>
+
+
+<h1>TO DO LIST</h1>
+<h6>You can edit your List by clicking the item you want to edit!!!</h6>
+
+<div>
+		
+		{{# if yes}}
+			<ul>
+				{{#each list}}
+					{{#if deleted}}
+						
+					{{else}}
+
+
+						{{#if completed}}
+							<li><strike><a href="/edit/{{id}}">{{content}}</a></strike></li>
+						{{else }}
+							<li><a href="/edit/{{id}}">{{content}}</a></li>
+						{{/if}}
+					{{/if}}
+					
+	
+				{{/each}}
+			</ul>
+		{{/if}}
+		
+
+				
+</div>
+
+<div>
+	<form action='/createItem' method='POST'>
+		<input type="text" name="new" placeholder='New Task'>
+		<button>Create New</button>
+	</form>
+</div>
