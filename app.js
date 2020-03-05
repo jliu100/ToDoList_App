@@ -3,6 +3,8 @@ const exphbs = require("express-handlebars");
 const axios = require("axios");
 const bodyParser= require("body-parser");
 
+
+var PORT=process.env.PORT||3000;
 const app = express();
 
 app.engine("handlebars", exphbs());
@@ -161,4 +163,6 @@ app.post("/delete/:id", function(req,res){
 	
 });
 
-app.listen(3000);
+app.listen(PORT,function(){
+	console.log("Server is running");
+});
